@@ -6,7 +6,7 @@ let msg = document.querySelector("#msg");
 let text = document.getElementsByClassName("text");
 // text[1].style.color="yellow";
 let turnO = true;
-let count=0;
+let count = 0;
 const winPatterns =[
     [0,1,2],
     [0,3,6],
@@ -22,6 +22,7 @@ const resetGame = ()=>{
     turnO = true;
     enableBoxes();
     msgContainer.classList.add("hide");
+    count = 0;
 }
 const gameDraw =()=>{
     msg.innerText='Match was a draw';
@@ -45,9 +46,9 @@ boxes.forEach((box) => {
             let id = box.getAttribute("id");
             boxes[id].style.color="blue";
         }
-        box.disabled=true;
+        box.disabled = true;
         count++;
-        let isWinner=checkWinner();
+        let isWinner = checkWinner();
         if (count === 9 && !isWinner) {
             gameDraw();
           }
